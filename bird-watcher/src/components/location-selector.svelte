@@ -2,21 +2,17 @@
     import { ActionIcon, Modal } from '@svelteuidev/core';
     import { Plus } from 'radix-icons-svelte';
     import { NativeSelect } from '@svelteuidev/core'
-    import { PrismaClient } from '@prisma/client'
     import { TextInput } from '@svelteuidev/core';
     import { Button, Group } from '@svelteuidev/core';
-	import Title from './title.svelte';
-	import Page from '../routes/+page.svelte';
-	import type { PageData } from '../routes/$types';
+	import type { Location } from '@prisma/client';
 
-    const prisma = new PrismaClient()
     let opened = false
     let locationName = ''
-    export let data: PageData;
+    export let locations: Location[];
 
 </script>
 <div class="flex justify-center gap-2">
-    <NativeSelect on:click data={data.locations.map(location => location.name)} placeholder="Velg et sted"/>
+    <NativeSelect on:click data={locations.map(location => location.name)} placeholder="Velg et sted"/>
     <ActionIcon on:click={() => (opened=true)} size="lg">
         <Plus size={24} />
     </ActionIcon>

@@ -1,71 +1,17 @@
 <script lang="ts">
+	import type { Bird } from "@prisma/client";
     import BirdType from "./bird-type.svelte";
 
-    interface Bird {
-    img: string;
-    name: string;
-    count: number;
-    }
-
-    export let birds: Bird = [
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    {
-        img: "images/birds/skjære.jpg",
-        name: "Skjære"
-    },
-    ]
+    export let birds: Bird[] 
 </script>
+
+{#if birds.length === 0}
+    <h2 class="text-lg">Ingen fugler funnet</h2>
+{/if}
 
 <div class="grid grid-rows-8 grid-cols-8">
     {#each birds as bird}
-    <BirdType img={bird.img} name={bird.name}/>
+    <BirdType bird={bird}/>
 {/each}
 </div>
 

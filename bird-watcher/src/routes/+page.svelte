@@ -10,6 +10,6 @@
 <SvelteUIProvider>
     <Header/>
     <Title/>
-    <LocationSelector data={data} />
-    <BirdTypeList/>
+    <LocationSelector locations={data.locations} />
+    <BirdTypeList birds = {data.birds}/>
 </SvelteUIProvider>

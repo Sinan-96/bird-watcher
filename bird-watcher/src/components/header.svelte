@@ -4,7 +4,7 @@
             <li><a class="text-2xl" href="/">Forside</a></li>
             <li><a class="text-2xl" href="/stats">Statistikk</a></li>
             <li><a class="text-2xl" href="/contact">Kontakt</a></li>
-            <li><a class="text-2xl" href="/birds">Fugler</a></li>
+            <li><a class="text-2xl" href="/birds/create">Fugler</a></li>
         </ul>
     </nav>
 </header>

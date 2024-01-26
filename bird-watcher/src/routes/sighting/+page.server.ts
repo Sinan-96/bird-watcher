@@ -9,25 +9,28 @@ export const actions = {
     default: async ({ request }) => {
         const data = await request.formData();
 
-
-		const name = data.get("name")
-        const picture = data.get("image")
+        const location = data.get("location");
+        const bird = data.get("bird");
 
         // 2.
-        if (!picture) {
-            return fail(400, { location: picture, missing: true });
+        if (!location) {
+            return fail(400, { location, missing: true });
+        }
+
+        if (!bird) {
+            return fail(400, { bird, missing: true });
         }
 
         // 3.
-        if (typeof picture != "string" || typeof name != "string") {
+        if (typeof location != "string" || typeof bird != "string") {
             return fail(400, { incorrect: true })
         }
 
         // 4.
-        await prisma.bird.create({
+        await prisma.sighting.create({
             data: {
-                picture,
-				name,
+                location,
+                bird,
             },
         });
 
