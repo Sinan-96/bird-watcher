@@ -8,7 +8,6 @@ export const load = (async () => {
 const locations = await prisma.location.findMany()
 
 const birds = await prisma.bird.findMany()
-
 // 2.
 return { locations: locations, birds: birds};
 }) satisfies PageServerLoad;

@@ -2,7 +2,8 @@
 	import type { Bird } from "@prisma/client";
     import BirdType from "./bird-type.svelte";
 
-    export let birds: Bird[] 
+    export let birds: Bird[]
+    export let location: number; 
 </script>
 
 {#if birds.length === 0}
