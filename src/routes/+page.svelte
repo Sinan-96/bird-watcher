@@ -8,6 +8,6 @@
 </script>
 <SvelteUIProvider class="font-mono">
     <Title/>
-    <LocationSelector locations={data.locations} />
-    <BirdTypeList birds = {data.birds}/>
+    <LocationSelector locations={data.locations.concat({id: 0, name:"Alle steder"})} />
+    <BirdTypeList birds = {data.birds} birdSighteings = {data.birdSighteings}/>
 </SvelteUIProvider>

@@ -17,7 +17,7 @@ model Location {
 
 model Bird {
   id        Int      @id @default(autoincrement())
-  name     String   @unique
+  name     String    @unique
   createdAt DateTime @default(now())
   picture   String
 }
