@@ -1,15 +1,14 @@
 FROM node:20-bullseye-slim AS builder
 RUN apt-get update && apt-get install -y openssl
 WORKDIR /app
-COPY package*.json .
-RUN npm ci
+COPY package.json .
+RUN npm config set registry https://registry.npmjs.org/
+RUN npm install
 COPY . .
 ADD prisma .
 RUN npx prisma generate
 RUN npm run build
 RUN npm prune --production
-ARG DATABASE_URL
-RUN npm run deploy:db
 
 
 
