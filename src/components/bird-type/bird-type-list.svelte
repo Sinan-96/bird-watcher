@@ -12,7 +12,7 @@
     $: filteredBirds = birds.filter(bird => bird.name.toLowerCase().includes(birdName.toLowerCase()));
 
     function getCount(birdId: number): number {
-		return birdSighteings.find(sighteingCount => sighteingCount.birdId == birdId)._count || 0;
+		return birdSighteings.find(sighteingCount => sighteingCount.birdId == birdId)?._count || 0;
 	}
 </script>
 
