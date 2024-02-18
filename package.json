@@ -43,8 +43,10 @@
 		"@svelteuidev/composables": "^0.15.4",
 		"@svelteuidev/core": "^0.15.4",
 		"buffer": "^6.0.3",
+		"is-mobile": "^4.0.0",
 		"mobile-device-detect": "^0.4.3",
 		"radix-icons-svelte": "^1.2.1",
-		"svelte-cloudinary": "^1.1.2"
+		"svelte-cloudinary": "^1.1.2",
+		"svelte-device-info": "^1.0.4"
 	}
 }
