@@ -11,7 +11,7 @@
         <a href="/stats" on:click={() => open = false}>Statistikk</a>
         <a href="/contact" on:click={() => open = false}>Kontakt</a>
         <a href="/birds/create" on:click={() => open = false}>Fugler</a>
-		<ActionIcon size="text-x" on:click={() => open = false}><Cross1 size={40}/></ActionIcon>
+		<ActionIcon on:click={() => open = false}><Cross1 size={40}/></ActionIcon>
 	</nav>
 </aside>
 
