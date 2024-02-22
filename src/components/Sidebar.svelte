@@ -1,13 +1,17 @@
 <script>
+	import { ActionIcon } from "@svelteuidev/core";
+	import { Cross1 } from "radix-icons-svelte";
+
 	export let open = false
 </script>
 
-<aside class="absolute w-full h-full bg-gray-200 border-r-2 shadow-lg" class:open>
-	<nav class="p-12 text-xl">
-        <li><a class="text-2xl font" href="/" on:click={() => open = false}>Forside</a></li>
-        <li><a class="text-2xl" href="/stats" on:click={() => open = false}>Statistikk</a></li>
-        <li><a class="text-2xl" href="/contact" on:click={() => open = false}>Kontakt</a></li>
-<li><a class="text-2xl" href="/birds/create" on:click={() => open = false}>Fugler</a></li>
+<aside class="fixed w-full h-screen bg-gray-200 border-r-2 shadow-lg" class:open>
+	<nav class="flex flex-col pt-20 items-center text-5xl gap-12">
+        <a href="/" on:click={() => open = false}>Forside</a>
+        <a href="/stats" on:click={() => open = false}>Statistikk</a>
+        <a href="/contact" on:click={() => open = false}>Kontakt</a>
+        <a href="/birds/create" on:click={() => open = false}>Fugler</a>
+		<ActionIcon size="text-x" on:click={() => open = false}><Cross1 size={40}/></ActionIcon>
 	</nav>
 </aside>
 

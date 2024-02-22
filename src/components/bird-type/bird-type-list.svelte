@@ -2,8 +2,6 @@
 	import type { Bird } from "@prisma/client";
     import BirdType from "./bird-type.svelte";
 	import { TextInput } from "@svelteuidev/core";
-	import { get } from "svelte/store";
-	import { writableLocationStore } from "$lib/stores";
 
     export let birds: Bird[]
     export let birdSighteings: any[]

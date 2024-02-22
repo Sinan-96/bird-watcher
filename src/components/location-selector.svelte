@@ -25,7 +25,7 @@
     $: writableLocationStore.set(findLocationID(locationName));
 
 </script>
-<div class="flex justify-center gap-2 font-mono">
+<div class="flex justify-center gap-2 font-mono mt-4">
     <NativeSelect on:click data={locations.map(location => location.name)} placeholder="Velg et sted" bind:value={locationName}/>
     <ActionIcon on:click={() => (opened=true)} size="lg">
         <Plus size={24} />
