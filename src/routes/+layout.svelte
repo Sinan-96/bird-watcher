@@ -12,7 +12,7 @@
 {#if isMobile() }
 <Sidebar bind:open/>
 <Navbar bind:sidebar={open}/>
-  {:else}
+{:else}
   <Header/>
 {/if}
   <SvelteUIProvider>
