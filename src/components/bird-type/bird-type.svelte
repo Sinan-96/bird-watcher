@@ -21,7 +21,7 @@
 	}
 
 </script>
-<div class="flex  flex-wrap flex-col m-4 w-fit items-center">
+<div class="flex flex-wrap flex-col m-4 w-fit items-center">
 	<Image width={160} height={240} src={bird.picture} sizes="" alt=""/>
 	<a class="text-[2em] font-extrabold self-center">{bird.name}</a>
 	<a class="text-[2em] font-extrabold self-center">{count}</a>

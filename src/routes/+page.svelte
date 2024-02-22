@@ -8,7 +8,7 @@
     export let data;
 </script>
 <SvelteUIProvider class="font-mono">
-    {#if isMobile() }
+    {#if !isMobile() }
     <Title/>
     {/if}
     <LocationSelector locations={data.locations.concat({id: 0, name:"Alle steder"})} />
