@@ -1,5 +1,4 @@
-<svg width=auto height=30>
-	<text x=0 y=20>ACME</text>
+<svg width=30 height=30>
 </svg>
 
 <style>
