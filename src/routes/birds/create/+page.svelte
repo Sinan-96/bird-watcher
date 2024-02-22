@@ -28,7 +28,7 @@ function selectImage(image: Image){
 <div class="flex-col">
 <form  method="post" class="grid grid-cols-1 gap-4">
     <TextInput type="text" name="name" label="Navn" placeholder="Navn på fugl" bind:value={birdName} />
-    <Button type="submit">Last opp fugl</Button>
+    <Button disabled={!birdName || !selectedImage} type="submit">Last opp fugl</Button>
     <input type="hidden" name="image" bind:value={selectedImage}/>
 </form>
 
