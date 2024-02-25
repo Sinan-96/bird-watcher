@@ -6,11 +6,20 @@
 	import { Cross1 } from "radix-icons-svelte";
 
 	export let bird: Bird
-	export let count: number = 0;
 	let opened = false
 
 	export let removeBird: (birdId: number) => void;
-	
+
+	let locationId = 0;
+
+	writableLocationStore.subscribe(value => locationId = value)
+
+	$: {
+		getCount(locationId);
+ 	} 
+
+	let count = 0
+
 	function incrementCount() {
 		count += 1;
 		fetch(`birds/api/sighteing`, {
@@ -36,6 +45,18 @@ function deleteBird() {
 			removeBird(bird.id);
 			return response.json()
 		})
+		.catch(error => console.log(error))
+}
+
+function getCount(locationId: number) {
+	fetch(`birds/api/${bird.id}/${locationId}`, {
+		method: 'GET',
+		headers: {
+			"Content-Type": "application/json",
+		},
+	})
+		.then(response => response.json())
+		.then(data => count = data.birdSighteingsCount)
 		.catch(error => console.log(error))
 }
 	

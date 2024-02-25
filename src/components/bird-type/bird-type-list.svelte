@@ -10,9 +10,7 @@
     let birdName = '';
     $: filteredBirds = birds.filter(bird => bird.name.toLowerCase().includes(birdName.toLowerCase()));
 
-    function getCount(birdId: number): number {
-		return birdSighteings.find(sighteingCount => sighteingCount.birdId == birdId)?._count || 0;
-	}
+
 
     function removeBird(birdId: number) {
         birds = birds.filter(bird => bird.id !== birdId);
@@ -26,7 +24,7 @@
 <div class="flex justify-center">
     <div class="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-1">
         {#each filteredBirds as bird}
-        <BirdType removeBird={removeBird} bird={bird} count={getCount(bird.id)}/>
+        <BirdType removeBird={removeBird} bird={bird}/>
     {/each}
     </div>
     {#if filteredBirds.length === 0}

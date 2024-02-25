@@ -1,7 +1,6 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '$lib/prisma';
 import { json } from '@sveltejs/kit';
 
-const prisma = new PrismaClient();
 
 // DELETE /birds/:id
 export const DELETE = async ({params}: {params: {bird: string}}) => {
