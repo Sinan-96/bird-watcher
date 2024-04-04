@@ -4,21 +4,20 @@
 	import { writableLocationStore } from "$lib/stores";
 	import { get } from 'svelte/store';
 	import { Cross1 } from "radix-icons-svelte";
+	import { browser } from "@svelteuidev/composables";
+	import { onMount } from "svelte";
 
 	export let bird: Bird
+	export let locationId: number
 	let opened = false
 
 	export let removeBird: (birdId: number) => void;
 
-	let locationId = 0;
-
-	writableLocationStore.subscribe(value => locationId = value)
+	let count = 0
 
 	$: {
-		getCount(locationId);
+		getCount(locationId, bird.id);
  	} 
-
-	let count = 0
 
 	function incrementCount() {
 		count += 1;
@@ -34,6 +33,7 @@
 	}
 
 function deleteBird() {
+	if(browser){
 	fetch(`birds/api/${bird.id}`, {
 		method: 'DELETE',
 		headers: {
@@ -46,10 +46,12 @@ function deleteBird() {
 			return response.json()
 		})
 		.catch(error => console.log(error))
+	}
 }
 
-function getCount(locationId: number) {
-	fetch(`birds/api/${bird.id}/${locationId}`, {
+function getCount(locationId: number, birdId: number) {
+	if(browser){
+	fetch(`birds/api/${birdId}/${locationId}`, {
 		method: 'GET',
 		headers: {
 			"Content-Type": "application/json",
@@ -58,6 +60,7 @@ function getCount(locationId: number) {
 		.then(response => response.json())
 		.then(data => count = data.birdSighteingsCount)
 		.catch(error => console.log(error))
+}
 }
 	
 

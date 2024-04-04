@@ -16,6 +16,19 @@ npm create svelte@latest my-app
 
 ## Developing
 
+Setup local postgres database:
+
+f.ex: 
+```bash
+docker run --name postgres15 -e POSTGRES_DB=birdwatcher -e POSTGRES_USER=sinan -e POSTGRES_PASSWORD=666 -p 5432:5432 -d postgres:15
+```
+Generate prisma client:
+
+```bash
+npx prisma generate
+npx prisma migrate dev
+```
+
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash

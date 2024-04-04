@@ -3,14 +3,22 @@
     import BirdType from "./bird-type.svelte";
 	import { TextInput, ActionIcon } from "@svelteuidev/core";
 	import { Plus } from "radix-icons-svelte";
+	import { writableLocationStore } from "$lib/stores";
 
     export let birds: Bird[]
     export let birdSighteings: any[]
+
+    let locationId = 0;
+
+    writableLocationStore.subscribe(value => locationId = value)
+
+    let filteredBirds = birds;
     
     let birdName = '';
-    $: filteredBirds = birds.filter(bird => bird.name.toLowerCase().includes(birdName.toLowerCase()));
-
-
+    function filterBirds(){
+        filteredBirds = birds.filter(bird => bird.name.toLowerCase().includes(birdName.toLowerCase()));
+        console.log(filteredBirds)
+    }
 
     function removeBird(birdId: number) {
         birds = birds.filter(bird => bird.id !== birdId);
@@ -19,12 +27,12 @@
 
 
 <div class="flex justify-center mt-10">
-    <TextInput type="text" name="name" placeholder="Søk på fugl" bind:value={birdName} class="m-auto" />
+    <TextInput type="text" name="name" placeholder="Søk på fugl" bind:value={birdName} on:change = {filterBirds} class="m-auto" />
 </div>
 <div class="flex justify-center">
     <div class="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-1">
         {#each filteredBirds as bird}
-        <BirdType removeBird={removeBird} bird={bird}/>
+        <BirdType removeBird={removeBird} bird={bird} locationId={locationId}/>
     {/each}
     </div>
     {#if filteredBirds.length === 0}
